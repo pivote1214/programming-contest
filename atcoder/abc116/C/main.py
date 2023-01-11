@@ -5,8 +5,10 @@ import sys
 def solve(N: int, h: "List[int]"):
     ans = 0
     for i in range(max(h) + 1):
-        for j in range(N - 1):
-            if h[j] <= i and h[j+1] > i:
+        if h[0] > i:
+            ans += 1
+        for j in range(1, N):
+            if h[j-1] <= i and h[j] > i:
                 ans += 1
 
     print(ans)
